@@ -1,6 +1,11 @@
 <?php
 include("config.php");
 
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
 // kalau tidak ada id di query string
 if( !isset($_GET['id']) ){
     header('Location: list-siswa.php');
